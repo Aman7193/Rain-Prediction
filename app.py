@@ -20,7 +20,7 @@ def home():
 @cross_origin()
 def predict():
 	if request.method == "POST":
-		# try:
+		try:
 			# MinTemp
 			MinTemp = float(request.form['mintemp'])
 			# MaxTemp
@@ -73,9 +73,9 @@ def predict():
 				return render_template("after_sunny.html")
 			else:
 				return render_template("after_rainy.html")
-		# except:
-		# 	error_message = "Invalid input. Please enter valid values."
-		# 	return render_template("predictor.html", error_message=error_message)
+		except:
+			error_message = "Invalid input. Please enter valid values."
+			return render_template("predictor.html", error_message=error_message)
 	return render_template("predictor.html")
 
 if __name__=='__main__':
